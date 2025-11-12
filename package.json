@@ -1,4 +1,20 @@
-{
+{23:09:44.086 Running build in Washington, D.C., USA (East) – iad1
+23:09:44.087 Build machine configuration: 2 cores, 8 GB
+23:09:44.247 Cloning github.com/28Bubbles/28Bubbles-site (Branch: main, Commit: 4e7e87a)
+23:09:44.248 Previous build caches not available.
+23:09:44.477 Cloning completed: 229.000ms
+23:09:44.833 Running "vercel build"
+23:09:45.261 Vercel CLI 48.9.0
+23:09:45.840 Installing dependencies...
+23:09:48.194 
+23:09:48.195 up to date in 2s
+23:09:48.225 Running "npm run build"
+23:09:48.337 
+23:09:48.338 > 28bubbles-site@1.0.0 build
+23:09:48.338 > next build
+23:09:48.338 
+23:09:48.342 sh: line 1: next: command not found
+23:09:48.353 Error: Command "npm run build" exited with 127
   "name": "28bubbles-site",
   "version": "1.0.0",
   "private": true,

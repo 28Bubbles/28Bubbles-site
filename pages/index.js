@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function Home() {
   return (
     <main
@@ -5,139 +7,92 @@ export default function Home() {
         background: "linear-gradient(135deg, #0a0a0a, #1a1a1a)",
         color: "white",
         minHeight: "100vh",
-        padding: "40px 20px",
+        padding: "20px",
         fontFamily: "sans-serif",
       }}
     >
-      {/* HERO SECTION */}
-      <div style={{ textAlign: "center", marginBottom: "50px" }}>
-        <img
-          src="/28BUBBLES_The_Clean_Company_Logo.png"
-          alt="28Bubbles Logo"
-          style={{ width: "200px", marginBottom: "20px" }}
-        />
-
-        <h1 style={{ fontSize: "36px", marginBottom: "10px" }}>
-          Welcome to 28Bubbles
-        </h1>
-        <p style={{ fontSize: "18px", opacity: 0.8 }}>
-          Licensed & Insured • Guaranteed Clean
-        </p>
-
-        <div style={{ marginTop: "30px" }}>
-          <a
-            href="#services"
+      {/* Floating bubbles animation */}
+      <div className="bubbles-container" style={{ position: "relative", height: "150px" }}>
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={i}
+            className="bubble"
             style={{
-              background: "#00bcd4",
-              padding: "12px 22px",
-              borderRadius: "8px",
-              textDecoration: "none",
-              color: "black",
-              fontWeight: "bold",
-              marginRight: "10px",
+              position: "absolute",
+              bottom: "-20px",
+              left: `${Math.random() * 100}%`,
+              width: `${10 + Math.random() * 30}px`,
+              height: `${10 + Math.random() * 30}px`,
+              background: "rgba(255, 255, 255, 0.3)",
+              borderRadius: "50%",
+              animation: `rise ${4 + Math.random() * 6}s linear infinite`,
             }}
-          >
-            Book Now
-          </a>
-
-          <a
-            href="#contact"
-            style={{
-              border: "2px solid #00bcd4",
-              padding: "12px 22px",
-              borderRadius: "8px",
-              textDecoration: "none",
-              color: "#00bcd4",
-              fontWeight: "bold",
-            }}
-          >
-            Contact Us
-          </a>
-        </div>
+          ></div>
+        ))}
       </div>
 
-      {/* SERVICES SECTION */}
-      <section id="services" style={{ marginTop: "60px" }}>
-        <h2 style={{ textAlign: "center", marginBottom: "30px" }}>
-          Our Cleaning Services
-        </h2>
+      {/* Logo */}
+      <img
+        src="/logo-192.png"
+        alt="28Bubbles Logo"
+        style={{ width: "200px", margin: "20px auto", display: "block" }}
+      />
 
-        <div
-          style={{
-            display: "grid",
-            gap: "20px",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-          }}
-        >
-          {/* Service Card 1 */}
-          <div
-            style={{
-              background: "#111",
-              padding: "20px",
-              borderRadius: "12px",
-              textAlign: "center",
-            }}
-          >
-            <div style={{ fontSize: "40px" }}>🏠</div>
-            <h3>Standard Cleaning</h3>
-            <p style={{ opacity: 0.7 }}>
-              Perfect for routine weekly or bi-weekly cleaning.
-            </p>
-          </div>
+      {/* Header + CTA */}
+      <h1 style={{ textAlign: "center", marginTop: "10px" }}>
+        Welcome to 28Bubbles
+      </h1>
 
-          {/* Service Card 2 */}
-          <div
-            style={{
-              background: "#111",
-              padding: "20px",
-              borderRadius: "12px",
-              textAlign: "center",
-            }}
-          >
-            <div style={{ fontSize: "40px" }}>🧼</div>
-            <h3>Deep Cleaning</h3>
-            <p style={{ opacity: 0.7 }}>
-              Thorough top-to-bottom detailed cleaning for any home.
-            </p>
-          </div>
-
-          {/* Service Card 3 */}
-          <div
-            style={{
-              background: "#111",
-              padding: "20px",
-              borderRadius: "12px",
-              textAlign: "center",
-            }}
-          >
-            <div style={{ fontSize: "40px" }}>🚚</div>
-            <h3>Move-In / Move-Out</h3>
-            <p style={{ opacity: 0.7 }}>
-              Get your space spotless before moving in or handing over keys.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer
-        id="contact"
+      <button
         style={{
-          marginTop: "80px",
-          paddingTop: "30px",
-          borderTop: "1px solid #333",
-          textAlign: "center",
+          margin: "20px auto",
+          display: "block",
+          padding: "12px 24px",
+          background: "#00aaff",
+          color: "white",
+          border: "none",
+          borderRadius: "10px",
+          fontSize: "1rem",
+          cursor: "pointer",
         }}
       >
-        <p>📞 706-428-4238</p>
-        <p>✉️ support@28bubbles.com | sales@28bubbles.com</p>
-        <p style={{ opacity: 0.7, marginTop: "10px" }}>
-          Licensed & Insured • Guaranteed Clean
-        </p>
-        <p style={{ opacity: 0.4, marginTop: "10px", fontSize: "12px" }}>
-          © {new Date().getFullYear()} 28Bubbles — All Rights Reserved.
-        </p>
-      </footer>
+        Get a Free Quote
+      </button>
+
+      {/* Contact Info */}
+      <p style={{ textAlign: "center" }}>Licensed & Insured | Guaranteed Clean</p>
+      <p style={{ textAlign: "center" }}>📞 706-428-4238</p>
+      <p style={{ textAlign: "center" }}>
+        ✉️ support@28bubbles.com | sales@28bubbles.com
+      </p>
+
+      {/* Services Section */}
+      <section style={{ marginTop: "40px" }}>
+        <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
+          Our Commercial & Residential Cleaning Services
+        </h2>
+        <ul style={{ maxWidth: "600px", margin: "0 auto", lineHeight: 1.8 }}>
+          <li>Deep Cleaning</li>
+          <li>Move-In / Move-Out Cleaning</li>
+          <li>Office Cleaning</li>
+          <li>Rental / Airbnb Cleaning</li>
+          <li>Carpet & Floor Care</li>
+          <li>Post-Construction Cleanup</li>
+        </ul>
+      </section>
+
+      {/* Global Styles for animations */}
+      <style>{`
+        @keyframes rise {
+          0% { transform: translateY(0); opacity: 0.4; }
+          100% { transform: translateY(-180px); opacity: 0; }
+        }
+
+        @media (max-width: 600px) {
+          h1 { font-size: 1.6rem; }
+          h2 { font-size: 1.2rem; }
+        }
+      `}</style>
     </main>
   );
 }
